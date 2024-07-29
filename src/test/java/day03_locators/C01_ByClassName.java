@@ -23,7 +23,8 @@ public class C01_ByClassName {
         driver.get("https://www.testotomasyonu.com");
         // 3- arama kutusuna phone yazıp aratın
 
-        WebElement searchBox = driver.findElement(By.id("global-search"));
+        // WebElement searchBox = driver.findElement(By.id("global-search"));
+        WebElement searchBox = driver.findElement(By.name("search"));
         searchBox.sendKeys("phone", Keys.ENTER);
 
         // 4- Category bolumunde 8 element olduğunu test edin
@@ -32,16 +33,16 @@ public class C01_ByClassName {
         int expectedCategorySayisi = 8;
         int actualCategorySayisi = categoryElementleriList.size();
 
-        if (actualCategorySayisi == expectedCategorySayisi){
+        if (actualCategorySayisi == expectedCategorySayisi) {
             System.out.println("Category sayisi testi PASSED");
-        }else {
+        } else {
             System.out.println("Category sayisi testi FAILED");
         }
 
         // 5- Category isimlerini yazdırın
 
         for (WebElement each : categoryElementleriList
-             ) {
+        ) {
             System.out.println(each.getText());
         }
 
@@ -50,6 +51,11 @@ public class C01_ByClassName {
         Thread.sleep(3000);
         driver.quit();
 
+
+        /*
+            Classname web elementleri bir liste olarak alıp, onları bir liste olarak yönetmek için kullanılır
+                     riskleri vardır. Classname de space var ise bu method çalışmayabilir
+         */
 
     }
 
